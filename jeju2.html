@@ -1,152 +1,167 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>濟州跨年萬能助手</title>
+    <style>
+        :root { --primary: #2d5a27; --accent: #ff9f43; --bg: #f4f7f6; --naver: #03C75A; }
+        body { font-family: -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #333; padding-bottom: 50px; }
+        .card { background: white; border-radius: 16px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        h2 { color: var(--primary); font-size: 1.1rem; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px; }
+        
+        /* 匯率樣式 */
+        .conv-box { display: flex; align-items: center; gap: 8px; }
+        .conv-box input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; width: 35%; }
+        .switch-btn { background: #eee; border: none; padding: 8px; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; }
+
+        /* 行程樣式 */
+        .itinerary-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9; gap: 10px; }
+        .info { flex: 1; }
+        .info b { display: block; font-size: 0.85rem; color: #888; }
+        .info span { font-weight: bold; font-size: 0.95rem; }
+        .nmap-link { background: var(--naver); color: white; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; }
+
+        /* 裝備樣式 */
+        .check-item { display: flex; align-items: center; padding: 8px 0; cursor: pointer; border-bottom: 1px solid #f9f9f9; }
+        .check-item input { width: 20px; height: 20px; margin-right: 12px; accent-color: var(--primary); }
+        .strikethrough { text-decoration: line-through; color: #bbb; }
+
+        /* 記帳樣式 */
+        .expense-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 14px; }
+        .total-box { text-align: right; margin-top: 10px; font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+
+        /* 表單與按鈕 */
+        .add-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+        .add-form input { padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
+        .add-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; grid-column: span 2; }
+        .del-btn { background: none; color: #ccc; border: none; font-size: 16px; margin-left: 5px; }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-TW"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;濟州跨年萬能助手&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root { --primary: #2d5a27; --accent: #ff9f43; --bg: #f4f7f6; --naver: #03C75A; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #333; padding-bottom: 50px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card { background: white; border-radius: 16px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h2 { color: var(--primary); font-size: 1.1rem; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 匯率與行程共通樣式 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conv-box { display: flex; align-items: center; gap: 8px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.conv-box input, .add-form input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.switch-btn { background: #eee; border: none; padding: 8px; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 行程清單樣式 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.itinerary-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9; gap: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info { flex: 1; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info b { display: block; font-size: 0.85rem; color: #888; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.info span { font-weight: bold; color: #333; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.nmap-link { background: var(--naver); color: white; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.del-btn { background: #fff; color: #ddd; border: none; font-size: 18px; padding: 0 5px; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 裝備清單樣式 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.check-item { display: flex; align-items: center; padding: 8px 0; cursor: pointer; border-bottom: 1px solid #f9f9f9; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.check-item input { width: 20px; height: 20px; margin-right: 12px; accent-color: var(--primary); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.check-item span { font-size: 15px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.strikethrough { text-decoration: line-through; color: #bbb; }</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* 新增表單樣式 */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.add-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.add-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; grid-column: span 2; margin-top: 5px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 style="text-align: center; color: var(--primary); font-size: 1.4rem;"&gt;🏔️ 濟州跨年之旅&lt;/h1&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;💰 匯率轉換 (TWD ⇄ KRW)&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="conv-box"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="flex: 1;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;label id="l-from" style="font-size: 11px; display: block;"&gt;台幣 TWD&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="number" id="i-from" placeholder="金額" oninput="convert()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="switch-btn" onclick="switchCur()"&gt;⇄&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="flex: 1;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;label id="l-to" style="font-size: 11px; display: block;"&gt;韓元 KRW&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="number" id="i-to" readonly style="background: #f9f9f9;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;📍 行程與導航&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="it-list"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="add-form"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="in-date" placeholder="日期 (12/30)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="in-name" placeholder="地點名稱"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="in-search" style="grid-column: span 2;" placeholder="Naver 搜尋關鍵字 (選填)"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="add-btn" onclick="addItem()"&gt;＋ 新增行程&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;🎒 漢拏山裝備檢查表&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="gear-list"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;&lt;b&gt;冰爪&lt;/b&gt; (山頂結冰非常滑)&lt;/span&gt;&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;登山杖 (保護膝蓋)&lt;/span&gt;&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;入山預約 QR Code (截圖)&lt;/span&gt;&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;防風保暖外套 &amp; 手套&lt;/span&gt;&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;保溫瓶 (建議裝熱水)&lt;/span&gt;&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;行動電源 &amp; 高熱量零食&lt;/span&gt;&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let isTwd = true;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const rate = 43; // 更新為最新接近匯率</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function convert() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const v = document.getElementById('i-from').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const t = document.getElementById('i-to');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>t.value = isTwd ? Math.round(v * rate) : (v / rate).toFixed(1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function switchCur() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>isTwd = !isTwd;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('l-from').innerText = isTwd ? "台幣 TWD" : "韓元 KRW";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('l-to').innerText = isTwd ? "韓元 KRW" : "台幣 TWD";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('i-from').value = "";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('i-to').value = "";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function addItem(date, name, search) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const d = date || document.getElementById('in-date').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const n = name || document.getElementById('in-name').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const s = search || document.getElementById('in-search').value || n;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (d &amp;&amp; n) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const list = document.getElementById('it-list');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const div = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>div.className = 'itinerary-item';</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const nmapUrl = `https://map.naver.com/v5/search/${encodeURIComponent(s)}`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>div.innerHTML = `</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="info"&gt;&lt;b&gt;${d}&lt;/b&gt;&lt;span&gt;${n}&lt;/span&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="${nmapUrl}" target="_blank" class="nmap-link"&gt;導航&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="del-btn" onclick="this.parentElement.remove()"&gt;✕&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>list.appendChild(div);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if(!date){ document.getElementById('in-date').value=""; document.getElementById('in-name').value=""; document.getElementById('in-search').value=""; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 保存裝備狀態</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function saveGear() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const checks = document.querySelectorAll('#gear-list input');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>checks.forEach(input =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if(input.checked) input.nextElementSibling.classList.add('strikethrough');</p>
-<p class="p1"><span class="Apple-converted-space">                </span>else input.nextElementSibling.classList.remove('strikethrough');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.onload = function() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// 預設行程</p>
-<p class="p1"><span class="Apple-converted-space">            </span>addItem("12/30", "Oshare 機場店", "oshare jeju airport");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>addItem("12/30", "濟州東門市場", "Dongmun Traditional Market");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>addItem("12/31", "漢拏山入口", "Hallasan Seongpanak Trail");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>addItem("01/01", "城山日出峰", "Seongsan Ilchulbong");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>addItem("01/01", "牛島渡輪碼頭", "Seongsan Port");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>addItem("01/02", "Audrant Bakery", "Audrant Bakery");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <h1 style="text-align: center; color: var(--primary); font-size: 1.4rem; margin: 10px 0;">🍊 濟州旅遊全能助手</h1>
+
+    <div class="card">
+        <h2>💰 匯率轉換 (1:43)</h2>
+        <div class="conv-box">
+            <div style="flex: 1;">
+                <label id="l-from" style="font-size: 11px; display: block;">台幣 TWD</label>
+                <input type="number" id="i-from" placeholder="金額" oninput="convert()">
+            </div>
+            <button class="switch-btn" onclick="switchCur()">⇄</button>
+            <div style="flex: 1;">
+                <label id="l-to" style="font-size: 11px; display: block;">韓元 KRW</label>
+                <input type="number" id="i-to" readonly style="background: #f9f9f9;">
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📍 行程管理 & 導航</h2>
+        <div id="it-list"></div>
+        <div class="add-form">
+            <input type="text" id="in-date" placeholder="日期 (12/30)">
+            <input type="text" id="in-name" placeholder="地點名稱">
+            <input type="text" id="in-search" style="grid-column: span 2;" placeholder="Naver 搜尋關鍵字">
+            <button class="add-btn" onclick="addItem()">＋ 新增行程</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🎒 漢拏山裝備清單</h2>
+        <div id="gear-list">
+            <label class="check-item"><input type="checkbox" onchange="saveData()"> <span>冰爪 (必備)</span></label>
+            <label class="check-item"><input type="checkbox" onchange="saveData()"> <span>登山杖</span></label>
+            <label class="check-item"><input type="checkbox" onchange="saveData()"> <span>預約 QR Code</span></label>
+            <label class="check-item"><input type="checkbox" onchange="saveData()"> <span>保暖外套/手套</span></label>
+            <label class="check-item"><input type="checkbox" onchange="saveData()"> <span>行動電源/零食</span></label>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📝 旅程記帳 (KRW)</h2>
+        <div id="exp-list"></div>
+        <div class="total-box" id="exp-total">總計: 0 KRW</div>
+        <div class="add-form" style="margin-top:15px;">
+            <input type="text" id="ex-note" placeholder="項目 (如:烤肉)">
+            <input type="number" id="ex-amt" placeholder="韓元 KRW">
+            <button class="add-btn" onclick="addExpense()" style="background: var(--accent);">＋ 新增支出</button>
+        </div>
+    </div>
+
+    <script>
+        let isTwd = true;
+        const rate = 43;
+
+        // 匯率
+        function convert() {
+            const v = document.getElementById('i-from').value;
+            const t = document.getElementById('i-to');
+            t.value = isTwd ? Math.round(v * rate) : (v / rate).toFixed(1);
+        }
+        function switchCur() {
+            isTwd = !isTwd;
+            document.getElementById('l-from').innerText = isTwd ? "台幣 TWD" : "韓元 KRW";
+            document.getElementById('l-to').innerText = isTwd ? "韓元 KRW" : "台幣 TWD";
+            document.getElementById('i-from').value = ""; document.getElementById('i-to').value = "";
+        }
+
+        // 行程
+        function addItem(date, name, search) {
+            const d = date || document.getElementById('in-date').value;
+            const n = name || document.getElementById('in-name').value;
+            const s = search || document.getElementById('in-search').value || n;
+            if (d && n) {
+                const list = document.getElementById('it-list');
+                const div = document.createElement('div');
+                div.className = 'itinerary-item';
+                div.innerHTML = `<div class="info"><b>${d}</b><span>${n}</span></div>
+                    <a href="https://map.naver.com/v5/search/${encodeURIComponent(s)}" target="_blank" class="nmap-link">導航</a>
+                    <button class="del-btn" onclick="this.parentElement.remove()">✕</button>`;
+                list.appendChild(div);
+                if(!date) { document.getElementById('in-date').value=""; document.getElementById('in-name').value=""; document.getElementById('in-search').value=""; }
+            }
+        }
+
+        // 記帳
+        let totalExp = 0;
+        function addExpense() {
+            const note = document.getElementById('ex-note').value;
+            const amt = parseInt(document.getElementById('ex-amt').value);
+            if (note && amt) {
+                const list = document.getElementById('exp-list');
+                const div = document.createElement('div');
+                div.className = 'expense-row';
+                div.innerHTML = `<span>${note}</span><span>${amt.toLocaleString()} KRW <button class="del-btn" onclick="updateTotal(-${amt}, this)">✕</button></span>`;
+                list.appendChild(div);
+                updateTotal(amt);
+                document.getElementById('ex-note').value=""; document.getElementById('ex-amt').value="";
+            }
+        }
+        function updateTotal(amt, btn) {
+            totalExp += amt;
+            document.getElementById('exp-total').innerText = `總計: ${totalExp.toLocaleString()} KRW`;
+            if(btn) btn.parentElement.parentElement.remove();
+        }
+
+        // 裝備狀態
+        function saveData() {
+            document.querySelectorAll('#gear-list label').forEach(label => {
+                const cb = label.querySelector('input');
+                if(cb.checked) label.classList.add('strikethrough');
+                else label.classList.remove('strikethrough');
+            });
+        }
+
+        window.onload = function() {
+            addItem("12/30", "Oshare 機場店", "oshare jeju airport");
+            addItem("12/30", "濟州東門市場", "Dongmun Traditional Market");
+            addItem("12/31", "漢拏山入口", "Hallasan Seongpanak Trail");
+            addItem("01/01", "城山日出峰", "Seongsan Ilchulbong");
+            addItem("01/01", "牛島渡輪碼頭", "Seongsan Port");
+            addItem("01/02", "Audrant Bakery", "Audrant Bakery");
+        };
+    </script>
 </body>
 </html>
