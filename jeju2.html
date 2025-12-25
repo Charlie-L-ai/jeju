@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-TW"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;濟州跨年萬能助手&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root { --primary: #2d5a27; --accent: #ff9f43; --bg: #f4f7f6; --naver: #03C75A; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 15px; color: #333; padding-bottom: 50px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card { background: white; border-radius: 16px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h2 { color: var(--primary); font-size: 1.1rem; margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 8px; margin-bottom: 12px; }</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 匯率與行程共通樣式 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.conv-box { display: flex; align-items: center; gap: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.conv-box input, .add-form input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.switch-btn { background: #eee; border: none; padding: 8px; border-radius: 50%; cursor: pointer; width: 40px; height: 40px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 行程清單樣式 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.itinerary-item { display: flex; align-items: center; padding: 10px 0; border-bottom: 1px solid #f9f9f9; gap: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.info { flex: 1; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.info b { display: block; font-size: 0.85rem; color: #888; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.info span { font-weight: bold; color: #333; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.nmap-link { background: var(--naver); color: white; text-decoration: none; padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.del-btn { background: #fff; color: #ddd; border: none; font-size: 18px; padding: 0 5px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 裝備清單樣式 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.check-item { display: flex; align-items: center; padding: 8px 0; cursor: pointer; border-bottom: 1px solid #f9f9f9; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.check-item input { width: 20px; height: 20px; margin-right: 12px; accent-color: var(--primary); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.check-item span { font-size: 15px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.strikethrough { text-decoration: line-through; color: #bbb; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 新增表單樣式 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.add-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.add-btn { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; grid-column: span 2; margin-top: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1 style="text-align: center; color: var(--primary); font-size: 1.4rem;"&gt;🏔️ 濟州跨年之旅&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;💰 匯率轉換 (TWD ⇄ KRW)&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="conv-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="flex: 1;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label id="l-from" style="font-size: 11px; display: block;"&gt;台幣 TWD&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="number" id="i-from" placeholder="金額" oninput="convert()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="switch-btn" onclick="switchCur()"&gt;⇄&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div style="flex: 1;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label id="l-to" style="font-size: 11px; display: block;"&gt;韓元 KRW&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="number" id="i-to" readonly style="background: #f9f9f9;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;📍 行程與導航&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="it-list"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="add-form"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="in-date" placeholder="日期 (12/30)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="in-name" placeholder="地點名稱"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="in-search" style="grid-column: span 2;" placeholder="Naver 搜尋關鍵字 (選填)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="add-btn" onclick="addItem()"&gt;＋ 新增行程&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;🎒 漢拏山裝備檢查表&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="gear-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;&lt;b&gt;冰爪&lt;/b&gt; (山頂結冰非常滑)&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;登山杖 (保護膝蓋)&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;入山預約 QR Code (截圖)&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;防風保暖外套 &amp; 手套&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;保溫瓶 (建議裝熱水)&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="check-item"&gt;&lt;input type="checkbox" onchange="saveGear()"&gt; &lt;span&gt;行動電源 &amp; 高熱量零食&lt;/span&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let isTwd = true;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const rate = 43; // 更新為最新接近匯率</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function convert() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const v = document.getElementById('i-from').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const t = document.getElementById('i-to');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>t.value = isTwd ? Math.round(v * rate) : (v / rate).toFixed(1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function switchCur() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>isTwd = !isTwd;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('l-from').innerText = isTwd ? "台幣 TWD" : "韓元 KRW";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('l-to').innerText = isTwd ? "韓元 KRW" : "台幣 TWD";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('i-from').value = "";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('i-to').value = "";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function addItem(date, name, search) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const d = date || document.getElementById('in-date').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const n = name || document.getElementById('in-name').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const s = search || document.getElementById('in-search').value || n;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (d &amp;&amp; n) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const list = document.getElementById('it-list');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const div = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>div.className = 'itinerary-item';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const nmapUrl = `https://map.naver.com/v5/search/${encodeURIComponent(s)}`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>div.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="info"&gt;&lt;b&gt;${d}&lt;/b&gt;&lt;span&gt;${n}&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;a href="${nmapUrl}" target="_blank" class="nmap-link"&gt;導航&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;button class="del-btn" onclick="this.parentElement.remove()"&gt;✕&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>list.appendChild(div);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(!date){ document.getElementById('in-date').value=""; document.getElementById('in-name').value=""; document.getElementById('in-search').value=""; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// 保存裝備狀態</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function saveGear() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const checks = document.querySelectorAll('#gear-list input');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>checks.forEach(input =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(input.checked) input.nextElementSibling.classList.add('strikethrough');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>else input.nextElementSibling.classList.remove('strikethrough');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 預設行程</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addItem("12/30", "Oshare 機場店", "oshare jeju airport");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addItem("12/30", "濟州東門市場", "Dongmun Traditional Market");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addItem("12/31", "漢拏山入口", "Hallasan Seongpanak Trail");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addItem("01/01", "城山日出峰", "Seongsan Ilchulbong");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addItem("01/01", "牛島渡輪碼頭", "Seongsan Port");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>addItem("01/02", "Audrant Bakery", "Audrant Bakery");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
